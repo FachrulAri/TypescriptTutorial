@@ -1,22 +1,28 @@
 // To compile "TS (Typescript)" file, use command "tsc [filename]" on terminal
 // we can add -w to auto compile every save
-// you can change the value but not the type
-let character = "mario";
-let age = 30;
-let isBlackBelt = true;
 
-// character = 30
-character = "luigi";
+//arrays
+let names = ["mario", "luigi", "peach"];
 
-// age = 'bowser'
-age = 20;
+names.push("toad");
+// names.push(3)
 
-// isBlackBelt = 'yes'
-isBlackBelt = false;
+let number = [20, 30, 40];
+// number.push('bowser')
 
-//you can declare parameter type on function
-const circ = (diameter: number) => {
-  return diameter * Math.PI;
+// Declaration array type is necessary if not the same type
+let mixed = ["ken", 4, "chill", 9, 10, true];
+
+mixed.push("rey");
+mixed.push(20);
+
+//objects
+let ninja = {
+  name: "mario",
+  age: 20,
 };
 
-console.log(circ(7.5));
+ninja.age = 30;
+ninja.name = "luigi";
+// We cant add new prop or manipulate structure
+// ninja.skills = 'str'
