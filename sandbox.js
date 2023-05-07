@@ -1,19 +1,26 @@
 // To compile "TS (Typescript)" file, use command "tsc [filename]" on terminal
 // we can add -w to auto compile every save
-//arrays
-var names = ["mario", "luigi", "peach"];
-names.push("toad");
-// names.push(3)
-var number = [20, 30, 40];
-// number.push('bowser')
-// Declaration array type is necessary if not the same type
-var mixed = ["ken", 4, "chill", 9, 10, true];
-mixed.push("rey");
+// Explicit Types
+var character;
+var age;
+var isLoggedIn;
+age = 30;
+isLoggedIn = true;
+// Arrays
+// Need to be declacred as empty array to use function (push)
+var ninja = [];
+ninja.push("mario");
+// Union Type
+var mixed = [];
+mixed.push("hello");
 mixed.push(20);
-//objects
-var ninja = {
-    name: "mario",
-    age: 20,
-};
-ninja.age = 30;
-ninja.name = "luigi";
+// mixed.push(true)
+var uid;
+uid = "mario";
+uid = 30;
+// Objects
+var ninjaOne;
+ninjaOne = { name: "mario", age: 20 };
+// let ninjaTwo: object;
+var ninjaTwo;
+ninjaTwo = { name: "mario", age: 20 };

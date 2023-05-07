@@ -1,28 +1,37 @@
 // To compile "TS (Typescript)" file, use command "tsc [filename]" on terminal
 // we can add -w to auto compile every save
 
-//arrays
-let names = ["mario", "luigi", "peach"];
+// Explicit Types
+let character: string;
+let age: number;
+let isLoggedIn: boolean;
 
-names.push("toad");
-// names.push(3)
+age = 30;
+isLoggedIn = true;
 
-let number = [20, 30, 40];
-// number.push('bowser')
+// Arrays
+// Need to be declacred as empty array to use function (push)
+let ninja: string[] = [];
+ninja.push("mario");
 
-// Declaration array type is necessary if not the same type
-let mixed = ["ken", 4, "chill", 9, 10, true];
-
-mixed.push("rey");
+// Union Type
+let mixed: (string | number)[] = [];
+mixed.push("hello");
 mixed.push(20);
+// mixed.push(true)
 
-//objects
-let ninja = {
-  name: "mario",
-  age: 20,
+let uid: string | number;
+uid = "mario";
+uid = 30;
+
+// Objects
+let ninjaOne: object;
+ninjaOne = { name: "mario", age: 20 };
+
+// let ninjaTwo: object;
+let ninjaTwo: {
+  name: string;
+  age: number;
 };
 
-ninja.age = 30;
-ninja.name = "luigi";
-// We cant add new prop or manipulate structure
-// ninja.skills = 'str'
+ninjaTwo = { name: "mario", age: 20 };
