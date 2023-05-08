@@ -1,26 +1,19 @@
 // To compile "TS (Typescript)" file, use command "tsc [filename]" on terminal
 // we can add -w to auto compile every save
-// Explicit Types
-var character;
-var age;
-var isLoggedIn;
-age = 30;
-isLoggedIn = true;
-// Arrays
-// Need to be declacred as empty array to use function (push)
-var ninja = [];
-ninja.push("mario");
-// Union Type
+// Dynamic any types. a type that can change
+var age = 20;
+age = true;
+console.log(age);
+age = "mario";
+console.log(age);
+age = { name: "luigi", age: 20 };
 var mixed = [];
-mixed.push("hello");
-mixed.push(20);
-// mixed.push(true)
-var uid;
-uid = "mario";
-uid = 30;
-// Objects
-var ninjaOne;
-ninjaOne = { name: "mario", age: 20 };
-// let ninjaTwo: object;
-var ninjaTwo;
-ninjaTwo = { name: "mario", age: 20 };
+mixed.push(5);
+mixed.push("Mario");
+mixed.push(false);
+console.log(mixed);
+var ninja;
+ninja = { name: "yoshi", age: 25 };
+console.log(ninja);
+ninja = { name: 30, age: false };
+console.log(ninja);
