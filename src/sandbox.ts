@@ -2,22 +2,21 @@
 // we can add -w to auto compile every save
 // to initiate tsc config type "tsc --init" on terminal, use "tsc" to compile all ts files
 
-let greet: Function;
-greet = () => {
-  console.log("hello world");
+// In typescript we can use type aliases, example in below
+type StringorNum = string | number;
+type usernameObjUid = { name: string; uid: string | number };
+
+const logDetails = (uid: string | number, item: string) => {
+  console.log(`${item} has uid ${uid}`);
+};
+const greet = (user: { name: string; uid: string | number }) => {
+  console.log(`Hello ${user.name}, your uid ${user.uid}`);
 };
 
-// if u want to add optional parameter, add "?" after parameter name
-// example "c?: number"
-const add = (a: number, b: number, c: number | string = 10) => {
-  console.log(a + b);
-  console.log(c);
+// Below are example of type aliases
+const greetB = (user: { name: string; uid: StringorNum }) => {
+  console.log(`Hello ${user.name}, your uid ${user.uid}`);
 };
-
-add(5, 10);
-
-const minus = (a: number, b: number) => {
-  return a - b;
+const greetWithAlias = (user: usernameObjUid) => {
+  console.log(`Hello ${user.name}, your uid ${user.uid}`);
 };
-
-let result = minus(10, 7);
