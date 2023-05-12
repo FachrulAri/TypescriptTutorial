@@ -2,21 +2,28 @@
 // we can add -w to auto compile every save
 // to initiate tsc config type "tsc --init" on terminal, use "tsc" to compile all ts files
 
-// In typescript we can use type aliases, example in below
-type StringorNum = string | number;
-type usernameObjUid = { name: string; uid: string | number };
+// let greet: Function
 
-const logDetails = (uid: string | number, item: string) => {
-  console.log(`${item} has uid ${uid}`);
-};
-const greet = (user: { name: string; uid: string | number }) => {
-  console.log(`Hello ${user.name}, your uid ${user.uid}`);
+// example 1
+let greet: (a: string, b: string) => void;
+greet = (name: string, greeting: string) => {
+  console.log(`${name} ${greeting}`);
 };
 
-// Below are example of type aliases
-const greetB = (user: { name: string; uid: StringorNum }) => {
-  console.log(`Hello ${user.name}, your uid ${user.uid}`);
+// example 2
+let calc: (a: number, b: number, c: string) => number;
+calc = (numOne: number, numTwo: number, action: string) => {
+  if (action == "add") {
+    return numOne + numTwo;
+  } else {
+    return numOne - numTwo;
+  }
 };
-const greetWithAlias = (user: usernameObjUid) => {
-  console.log(`Hello ${user.name}, your uid ${user.uid}`);
+
+// example 3
+let logDetails: (obj: { name: string; age: number }) => void;
+type person = { name: string; age: number };
+
+logDetails = (fahrul: person) => {
+  console.log(`${fahrul.name} ${fahrul.age}`);
 };
