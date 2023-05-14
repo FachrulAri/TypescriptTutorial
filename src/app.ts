@@ -12,6 +12,32 @@
 
 // console.log(anchor.href);
 
+// Classes
+class Invoice {
+  client: string;
+  details: string;
+  amount: number;
+
+  // Constructor initiated when creating new class
+  constructor(c: string, d: string, a: number) {
+    this.client = c;
+    this.details = d;
+    this.amount = a;
+  }
+
+  format() {
+    return `${this.client} with ${this.amount} for ${this.details}`;
+  }
+}
+// Creating new class
+const invOne = new Invoice("Mario", "Makan", 400);
+const invTwo = new Invoice("Luigi", "Minum", 500);
+// Using type defining so only from class "Invoice" can be pushed into array
+let testInvoice: Invoice[] = [];
+testInvoice.push(invOne);
+testInvoice.push(invTwo);
+console.log(testInvoice);
+
 // const form = document.querySelector("form")!;
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
 // console.log(form.children);

@@ -8,11 +8,31 @@
 // //   console.log(anchor.href);
 // // }
 // console.log(anchor.href);
+// Classes
+class Invoice {
+    // Constructor initiated when creating new class
+    constructor(c, d, a) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+    }
+    format() {
+        return `${this.client} with ${this.amount} for ${this.details}`;
+    }
+}
+// Creating new class
+const invOne = new Invoice("Mario", "Makan", 400);
+const invTwo = new Invoice("Luigi", "Minum", 500);
+// Using type defining so only from class "Invoice" can be pushed into array
+let testInvoice = [];
+testInvoice.push(invOne);
+testInvoice.push(invTwo);
+console.log(testInvoice);
 // const form = document.querySelector("form")!;
 const form = document.querySelector(".new-item-form");
 // console.log(form.children);
 // inputs
-// has select id "type"
+// we select id of element based on their names "type, tofrom, details, amount"
 const type = document.querySelector("#type");
 const toFrom = document.querySelector("#tofrom");
 const details = document.querySelector("#details");
