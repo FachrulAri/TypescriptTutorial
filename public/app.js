@@ -16,6 +16,12 @@ class Invoice {
         this.details = d;
         this.amount = a;
     }
+    // You can use below constructor for simpler code but only if there access modifier
+    // constructor(
+    //   readonly client: string,
+    //   private details: string,
+    //   public amount: number
+    // ) {}
     format() {
         return `${this.client} with ${this.amount} for ${this.details}`;
     }
@@ -27,7 +33,13 @@ const invTwo = new Invoice("Luigi", "Minum", 500);
 let testInvoice = [];
 testInvoice.push(invOne);
 testInvoice.push(invTwo);
-console.log(testInvoice);
+// Removing detail since its private and can only accessed in same class
+// it can only accessed via class Invoice prop format()
+testInvoice.forEach((inv) => {
+    console.log(inv.client, 
+    // inv.details,
+    inv.amount, inv.format());
+});
 // const form = document.querySelector("form")!;
 const form = document.querySelector(".new-item-form");
 // console.log(form.children);
