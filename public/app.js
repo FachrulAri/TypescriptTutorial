@@ -1,31 +1,7 @@
-"use strict";
 // To compile "TS (Typescript)" file, use command "tsc [filename]" on terminal
 // we can add -w to auto compile every save
 // to initiate tsc config type "tsc --init" on terminal, use "tsc" to compile all ts files
-// you can use "!"" after the queryselector if u knew there is a value
-// const anchor = document.querySelector("a")!;
-// // if (anchor) {
-// //   console.log(anchor.href);
-// // }
-// console.log(anchor.href);
-// Classes
-class Invoice {
-    // Constructor initiated when creating new class
-    constructor(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-    }
-    // You can use below constructor for simpler code but only if there access modifier
-    // constructor(
-    //   readonly client: string,
-    //   private details: string,
-    //   public amount: number
-    // ) {}
-    format() {
-        return `${this.client} with ${this.amount} for ${this.details}`;
-    }
-}
+import { Invoice } from "./classes/Invoice.js";
 // Creating new class
 const invOne = new Invoice("Mario", "Makan", 400);
 const invTwo = new Invoice("Luigi", "Minum", 500);
@@ -40,6 +16,12 @@ testInvoice.forEach((inv) => {
     // inv.details,
     inv.amount, inv.format());
 });
+// you can use "!"" after the queryselector if u knew there is a value
+// const anchor = document.querySelector("a")!;
+// // if (anchor) {
+// //   console.log(anchor.href);
+// // }
+// console.log(anchor.href);
 // const form = document.querySelector("form")!;
 const form = document.querySelector(".new-item-form");
 // console.log(form.children);
