@@ -1,6 +1,24 @@
 // To compile "TS (Typescript)" file, use command "tsc [filename]" on terminal
 // we can add -w to auto compile every save
 // to initiate tsc config type "tsc --init" on terminal, use "tsc" to compile all ts files
+// Creating attb with isPerson specification
+const me = {
+    name: "Fahrul",
+    age: 25,
+    speak(text) {
+        console.log("Hello ", text);
+    },
+    spend(amount) {
+        console.log("I spend ", amount);
+        return amount;
+    },
+};
+// Creating function with parameter isPerson
+const greetPerson = (person) => {
+    console.log("Hi ", person.name);
+};
+// Using greetPerson function with attb that we created "me"
+greetPerson(me);
 import { Invoice } from "./classes/Invoice.js";
 // Creating new class
 const invOne = new Invoice("Mario", "Makan", 400);
