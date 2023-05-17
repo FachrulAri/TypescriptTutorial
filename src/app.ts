@@ -3,6 +3,7 @@
 // to initiate tsc config type "tsc --init" on terminal, use "tsc" to compile all ts files
 
 import { Invoice } from "./classes/Invoice.js";
+import { listTemplate } from "./classes/ListTemplate.js";
 import { Payment } from "./classes/Payment.js";
 import { hasFormatter } from "./interfaces/HasFormatter.js";
 
@@ -24,6 +25,11 @@ const toFrom = document.querySelector("#tofrom") as HTMLInputElement;
 const details = document.querySelector("#details") as HTMLInputElement;
 const amount = document.querySelector("#amount") as HTMLInputElement;
 
+// List template instance
+// since there is only 1 "ul" we dont have to use class name
+const ul = document.querySelector("ul")!;
+const list = new listTemplate(ul);
+
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
   let doc: hasFormatter;
@@ -32,5 +38,5 @@ form.addEventListener("submit", (e: Event) => {
   } else {
     doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
   }
-  console.log(doc);
+  list.render(doc, type.value, "start");
 });
