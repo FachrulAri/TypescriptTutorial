@@ -40,3 +40,35 @@ form.addEventListener("submit", (e: Event) => {
   }
   list.render(doc, type.value, "start");
 });
+
+// GENERICS
+// start with <attbName> and u can specify the type more using extend
+// usually programmer using T as generic name. generic are used for flexible type
+const addUID = <T extends { name: string }>(obj: T) => {
+  let uid = Math.floor(Math.random() * 100);
+  return { ...obj, uid };
+};
+let docOne = addUID({ name: "Maroi", age: 24 });
+// let docTwo = addUID('hello')
+console.log(docOne.age);
+
+// GENERIC with interfaces
+// we can use it on interfaces
+interface Resource<T> {
+  uid: number;
+  resourceName: string;
+  data: T;
+}
+// specifying the type as object of any type
+const docThree: Resource<object> = {
+  uid: 15,
+  resourceName: "Marci",
+  data: { name: "Shaun" },
+};
+// example generic as array of string
+const docFour: Resource<string[]> = {
+  uid: 15,
+  resourceName: "Marci",
+  data: ["Nua", "Milk", "Bread"],
+};
+console.log(docThree, docFour);
