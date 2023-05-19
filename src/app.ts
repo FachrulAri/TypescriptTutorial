@@ -52,23 +52,36 @@ let docOne = addUID({ name: "Maroi", age: 24 });
 // let docTwo = addUID('hello')
 console.log(docOne.age);
 
+// ENUMS
+// enums are used for changing the string into number so we dont have to remember number is which value
+// example of enum is on interface
+enum ResourceType {
+  BOOK,
+  AUTHOR,
+  FILM,
+  DIRECTOR,
+  PERSON,
+}
+
 // GENERIC with interfaces
 // we can use it on interfaces
 interface Resource<T> {
   uid: number;
-  resourceName: string;
+  // Changing into enum
+  resourceName: ResourceType;
   data: T;
 }
 // specifying the type as object of any type
 const docThree: Resource<object> = {
   uid: 15,
-  resourceName: "Marci",
+  // if we console log doc3/4 we will get number based on enum order
+  resourceName: ResourceType.AUTHOR,
   data: { name: "Shaun" },
 };
 // example generic as array of string
 const docFour: Resource<string[]> = {
   uid: 15,
-  resourceName: "Marci",
+  resourceName: ResourceType.PERSON,
   data: ["Nua", "Milk", "Bread"],
 };
 console.log(docThree, docFour);

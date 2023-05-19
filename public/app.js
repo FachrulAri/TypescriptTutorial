@@ -44,16 +44,28 @@ const addUID = (obj) => {
 let docOne = addUID({ name: "Maroi", age: 24 });
 // let docTwo = addUID('hello')
 console.log(docOne.age);
+// ENUMS
+// enums are used for changing the string into number so we dont have to remember number is which value
+// example of enum is on interface
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
 // specifying the type as object of any type
 const docThree = {
     uid: 15,
-    resourceName: "Marci",
+    // if we console log doc3/4 we will get number based on enum order
+    resourceName: ResourceType.AUTHOR,
     data: { name: "Shaun" },
 };
 // example generic as array of string
 const docFour = {
     uid: 15,
-    resourceName: "Marci",
+    resourceName: ResourceType.PERSON,
     data: ["Nua", "Milk", "Bread"],
 };
 console.log(docThree, docFour);
