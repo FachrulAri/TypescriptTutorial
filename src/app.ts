@@ -32,11 +32,20 @@ const list = new listTemplate(ul);
 
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
+
+  //Tupples
+  // example: define certain position on certain type and use it with spread operator
+  let values: [string, string, number] = [
+    toFrom.value,
+    details.value,
+    amount.valueAsNumber,
+  ];
   let doc: hasFormatter;
   if (type.value === "invoice") {
-    doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+    // applying tuple with seperate operator
+    doc = new Invoice(...values);
   } else {
-    doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+    doc = new Payment(...values);
   }
   list.render(doc, type.value, "start");
 });
@@ -85,3 +94,15 @@ const docFour: Resource<string[]> = {
   data: ["Nua", "Milk", "Bread"],
 };
 console.log(docThree, docFour);
+
+// Tuples
+// a typed array with a pre-defined length and types for each index.
+// Tuples are great because they allow each element in the array to be a known type of value.
+let arr = ["ryu", 25, true];
+arr[0] = false;
+arr[1] = "yoshi";
+arr = [30, false, "yoshi"];
+
+let tup: [string, number, boolean] = ["ryu", 25, true];
+tup[0] = "ken";
+tup[1] = 30;
